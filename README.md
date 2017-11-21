@@ -11,5 +11,9 @@ Android sudoku app made in java with Android Studio
   - Mark a placed value as unsure (***COMING SOON***)
   - Instructions at the start screen (***COMING SOON***)
   - Choose language at the start screen (***COMING SOON***)
+
+## Credits
+Flag images are from [flaglane.com](http://flaglane.com/).
+
 ## Licence
 MIT © [Knut Kirkhorn](LICENSE)
