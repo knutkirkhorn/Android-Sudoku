@@ -17,4 +17,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent("me.kirkhorn.knut.GameActivity");
         startActivity(intent);
     }
+
+    public void onAddNewBoardButtonClicked(View view) {
+        Intent intent = new Intent("me.kirkhorn.knut.NewBoardActivity");
+        startActivity(intent);
+    }
+
+    public void onShowInstructionsButtonClicked(View view) {
+        Intent intent = new Intent("me.kirkhorn.knut.InstructionsActivity");
+        startActivity(intent);
+    }
 }

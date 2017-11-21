@@ -23,7 +23,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewBoardActivity" />
+        <activity android:name=".NewBoardActivity">
+            <intent-filter>
+                <action android:name="me.kirkhorn.knut.NewBoardActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".InstructionsActivity">
+            <intent-filter>
+                <action android:name="me.kirkhorn.knut.InstructionsActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

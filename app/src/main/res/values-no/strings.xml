@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android-Sudoku</string>
+    <string name="sudoku">Sudoku</string>
+
+    <string name="new_game">Start nytt spill</string>
+    <string name="add_new_board">Legg til nytt brett</string>
+    <string name="show_instructions">Vis bruksanvisning</string>
+    <string name="choose_language">Velg språk:</string>
+</resources>
