@@ -57,7 +57,7 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goBackButtonClicked"
+        android:onClick="onGoBackButtonClicked"
         android:text="@string/go_back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.095"

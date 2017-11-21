@@ -27,7 +27,7 @@ public class InstructionsActivity extends AppCompatActivity {
         System.out.println(locale);
     }
 
-    public void goBackButtonClicked(View view) {
+    public void onGoBackButtonClicked(View view) {
         finish();
     }
 }

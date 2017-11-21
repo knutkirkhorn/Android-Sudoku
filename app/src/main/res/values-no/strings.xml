@@ -11,5 +11,5 @@
     <string name="instructions_1">1. I Sudoku er det meningen å plassere alle de resterende brikkene i brettet som ikke er valgt.</string>
     <string name="instructions_2">2. Brettet er delt inn i flere kvadrat, og inne i de ulike kvadratene er det bare lov å legge et tall en gang.</string>
     <string name="instructions_3">3. Det er bare lov å legge et av hvert tall på hver rekke både horisontalt og vertikalt.</string>
-    <string name="go_back_button">Go back</string>
+    <string name="go_back_button">Gå tilbake</string>
 </resources>
