@@ -2,15 +2,15 @@
 Android sudoku app made in java with Android Studio
 
 ## Screenshots (***COMING SOON***)
-## Features (***COMING SOON***)
+## Features
   - Start a new game with a specified difficulty (***COMING SOON***):
     * Easy
     * Normal
     * Hard
   - Add new Sudoku boards (***COMING SOON***)
   - Mark a placed value as unsure (***COMING SOON***)
-  - Instructions at the start screen
-  - Choose language at the start screen (***COMING SOON***)
+  - Instructions of how to play (***ADD MORE***)
+  - Choose language at the start screen
 
 ## Credits
 Flag images are from [flaglane.com](http://flaglane.com/).
