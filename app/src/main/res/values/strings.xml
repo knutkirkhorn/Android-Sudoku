@@ -6,4 +6,10 @@
     <string name="add_new_board">Add new board</string>
     <string name="show_instructions">Show instructions</string>
     <string name="choose_language">Choose language:</string>
+
+    <string name="instructions">Instructions</string>
+    <string name="instructions_1">1. In Sudoku it is intended to place all the remaining pieces on the board that are......</string>
+    <string name="instructions_2">2. The board is separated into several squares, and inside each of them it is only allowed to place one of each number.</string>
+    <string name="instructions_3">3. It is only allowed to place one of each number at each horizontal and vertical row.</string>
+    <string name="go_back_button">Go back</string>
 </resources>
