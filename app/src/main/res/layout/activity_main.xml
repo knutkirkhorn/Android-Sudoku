@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewBritish"
         android:layout_width="58dp"
         android:layout_height="35dp"
         android:src="@drawable/british_flag"
@@ -69,7 +69,7 @@
         app:layout_constraintVertical_bias="0.993" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewNorwegian"
         android:layout_width="47dp"
         android:layout_height="33dp"
         android:src="@drawable/norwegian_flag"
