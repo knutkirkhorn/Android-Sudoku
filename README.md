@@ -9,7 +9,7 @@ Android sudoku app made in java with Android Studio
     * Hard
   - Add new Sudoku boards (***COMING SOON***)
   - Mark a placed value as unsure (***COMING SOON***)
-  - Instructions at the start screen (***COMING SOON***)
+  - Instructions at the start screen
   - Choose language at the start screen (***COMING SOON***)
 
 ## Credits
