@@ -120,41 +120,37 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="16dp"
         android:onClick="onGoBackButtonClicked"
         android:text="@string/go_back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintVertical_bias="0.965" />
 
     <Button
         android:id="@+id/buttonShowInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="184dp"
+        android:layout_marginLeft="200dp"
         android:onClick="onShowInstructionsButtonClicked"
         android:text="@string/show_instructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintVertical_bias="0.965" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
+        android:layout_marginLeft="236dp"
         android:text="Marker som ...."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="0.861" />
 
-    <GridView
-        android:layout_width="368dp"
-        android:layout_height="16dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="361dp" />
+
 
 </android.support.constraint.ConstraintLayout>

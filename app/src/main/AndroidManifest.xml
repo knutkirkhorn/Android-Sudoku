@@ -39,6 +39,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChooseNumberActivity">
+            <intent-filter>
+                <action android:name="me.kirkhorn.knut.ChooseNumberActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

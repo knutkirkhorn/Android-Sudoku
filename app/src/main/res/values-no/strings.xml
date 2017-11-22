@@ -17,4 +17,7 @@
     <string name="difficulty_normal">Middels</string>
     <string name="difficulty_hard">Vanskelig</string>
     <string name="start_game">Start spill</string>
+    <string name="choose_number">Velg tall</string>
+    <string name="choose_a_number">Velg et tall å plassere:</string>
+    <string name="place_number">Plasser tall</string>
 </resources>
