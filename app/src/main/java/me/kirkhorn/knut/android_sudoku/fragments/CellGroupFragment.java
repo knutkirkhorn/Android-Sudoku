@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import me.kirkhorn.knut.android_sudoku.R;
 
 public class CellGroupFragment extends Fragment {
@@ -62,6 +64,22 @@ public class CellGroupFragment extends Fragment {
         currentView.setText(String.valueOf(value));
         currentView.setTextColor(Color.BLACK);
         currentView.setTypeface(null, Typeface.BOLD);
+    }
+
+    public boolean checkGroupCorrect() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        int textViews[] = new int[]{R.id.textView1, R.id.textView2, R.id.textView3, R.id.textView4,
+                R.id.textView5, R.id.textView6, R.id.textView7, R.id.textView8, R.id.textView9};
+        for (int textView1 : textViews) {
+            TextView textView = view.findViewById(textView1);
+            int number = Integer.parseInt(textView.getText().toString());
+            if (numbers.contains(number)) {
+                return false;
+            } else {
+                numbers.add(number);
+            }
+        }
+        return true;
     }
 
     @Override

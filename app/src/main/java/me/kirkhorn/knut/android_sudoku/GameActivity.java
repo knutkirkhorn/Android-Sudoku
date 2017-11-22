@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,10 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     private int[][] gameBoard = new int[9][9];
     private final String TAG = "GameActivity";
     private TextView clickedCell;
+    private int clickedGroup;
+    private int clickedCellId;
+    private Board startBoard;
+    private Board currentBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,9 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
         setContentView(R.layout.activity_game);
         int difficulty = getIntent().getIntExtra("difficulty", 0);
         ArrayList<Board> boards = readGameBoards(difficulty);
-        Board currentBoard = chooseRandomBoard(boards);
+        startBoard = chooseRandomBoard(boards);
+        currentBoard = new Board();
+        currentBoard.copyValues(startBoard.getGameCells());
 
         int cellGroupFragments[] = new int[]{R.id.cellGroupFragment, R.id.cellGroupFragment2, R.id.cellGroupFragment3, R.id.cellGroupFragment4,
                 R.id.cellGroupFragment5, R.id.cellGroupFragment6, R.id.cellGroupFragment7, R.id.cellGroupFragment8, R.id.cellGroupFragment9};
@@ -46,16 +53,25 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
         //Appear all values from the current board
         CellGroupFragment tempCellGroupFragment;
         for (int i = 0; i < 9; i++) {
-            tempCellGroupFragment = (CellGroupFragment) getSupportFragmentManager().findFragmentById(cellGroupFragments[i]);
             for (int j = 0; j < 9; j++) {
+                int column = j / 3;
+                int row = i / 3;
+
+                int fragmentNumber = (row * 3) + column;
+                tempCellGroupFragment = (CellGroupFragment) getSupportFragmentManager().findFragmentById(cellGroupFragments[fragmentNumber]);
+                int groupColumn = j % 3;
+                int groupRow = i % 3;
+
+                int groupPosition = (groupRow * 3) + groupColumn;
                 int currentValue = currentBoard.getValue(i, j);
+
                 if (currentValue != 0) {
-                    tempCellGroupFragment.setValue(j, currentBoard.getValue(i, j));
+                    tempCellGroupFragment.setValue(groupPosition, currentValue);
                 }
             }
         }
 
-        initializeGameArray();
+        //initializeGameArray();
     }
 
     private ArrayList<Board> readGameBoards(int difficulty) {
@@ -99,7 +115,8 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     }
 
     private Board chooseRandomBoard(ArrayList<Board> boards) {
-        return boards.get(0);
+        int randomNumber = (int) (Math.random() * boards.size());
+        return boards.get(randomNumber);
     }
 
     private void initializeGameArray() {
@@ -111,20 +128,29 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     }
 
     private boolean isStartPiece(int group, int cell) {
-        
+        int row = ((group-1)/3)*3 + (cell/3);
+        int column = ((group-1)%3)*3 + ((cell)%3);
+        return startBoard.getValue(row, column) != 0;
+    }
+
+    private boolean checkAllGroups() {
+        int cellGroupFragments[] = new int[]{R.id.cellGroupFragment, R.id.cellGroupFragment2, R.id.cellGroupFragment3, R.id.cellGroupFragment4,
+                R.id.cellGroupFragment5, R.id.cellGroupFragment6, R.id.cellGroupFragment7, R.id.cellGroupFragment8, R.id.cellGroupFragment9};
+        for (int i = 0; i < 9; i++) {
+            CellGroupFragment thisCellGroupFragment = (CellGroupFragment) getSupportFragmentManager().findFragmentById(cellGroupFragments[i]);
+            if (!thisCellGroupFragment.checkGroupCorrect()) {
+                return false;
+            }
+        }
         return true;
     }
 
-    public boolean checkIfCorrectPlaced() {
-        boolean won = false;
-
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
-                //TODO: check each row horizontal and vertical
-            }
+    public void onCheckBoardButtonClicked(View view) {
+        if(checkAllGroups() && currentBoard.isBoardCorrect()) {
+            Toast.makeText(this, "THIS IS CORRECT", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "FALLLSE", Toast.LENGTH_SHORT).show();
         }
-
-        return won;
     }
 
     public void onGoBackButtonClicked(View view) {
@@ -140,12 +166,31 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            clickedCell.setText(String.valueOf(data.getIntExtra("chosenNumber", 1)));
-            boolean isUnsure = data.getBooleanExtra("isUnsure", false);
-            if (isUnsure) {
-                clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell_unsure));
+            int row = ((clickedGroup-1)/3)*3 + (clickedCellId/3);
+            int column = ((clickedGroup-1)%3)*3 + ((clickedCellId)%3);
+
+            if (data.getBooleanExtra("removePiece", false)) {
+                clickedCell.setText("");
+                currentBoard.setValue(row, column, 0);
             } else {
-                clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell));
+                int number = data.getIntExtra("chosenNumber", 1);
+                clickedCell.setText(String.valueOf(number));
+                currentBoard.setValue(row, column, number);
+
+                boolean isUnsure = data.getBooleanExtra("isUnsure", false);
+                if (isUnsure) {
+                    clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell_unsure));
+                } else {
+                    clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell));
+                }
+
+                Button buttonCheckBoard = findViewById(R.id.buttonCheckBoard);
+                if (currentBoard.isBoardFull()) {
+                    buttonCheckBoard.setVisibility(View.VISIBLE);
+
+                } else {
+                    buttonCheckBoard.setVisibility(View.INVISIBLE);
+                }
             }
         }
     }
@@ -153,6 +198,8 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     @Override
     public void onFragmentInteraction(int groupId, int cellId, View view) {
         clickedCell = (TextView) view;
+        clickedGroup = groupId;
+        clickedCellId = cellId;
         Log.i(TAG, "Clicked group " + groupId + ", cell " + cellId);
         if (!isStartPiece(groupId, cellId)) {
             Intent intent = new Intent("me.kirkhorn.knut.ChooseNumberActivity");

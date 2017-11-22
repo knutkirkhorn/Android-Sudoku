@@ -29,4 +29,5 @@
     <string name="piece_unsure">Mark piece as unsure</string>
     <string name="remove_piece">Remove piece</string>
     <string name="start_piece_error">Can not change start piece</string>
+    <string name="check_board">Check board</string>
 </resources>

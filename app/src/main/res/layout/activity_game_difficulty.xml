@@ -8,23 +8,21 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="136dp"
+        android:layout_marginLeft="104dp"
         android:text="@string/choose_difficulty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229"
-        android:layout_marginStart="136dp" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="148dp"
+        android:layout_marginLeft="124dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373"
-        android:layout_marginStart="148dp">
+        app:layout_constraintVertical_bias="0.375">
 
         <RadioButton
             android:id="@+id/radioButtonEasy"
@@ -55,14 +53,13 @@
         android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="136dp"
+        android:layout_marginLeft="108dp"
         android:onClick="onStartGameButtonClicked"
         android:text="@string/start_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565"
-        android:layout_marginStart="136dp" />
+        app:layout_constraintVertical_bias="0.568" />
 
     <Button
         android:id="@+id/button"
