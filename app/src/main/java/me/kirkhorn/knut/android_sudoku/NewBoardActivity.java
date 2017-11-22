@@ -40,11 +40,14 @@ public class NewBoardActivity extends AppCompatActivity implements CellGroupFrag
 //        System.out.println(view.getTag());
         TextView textView = (TextView) view;
         textView.setText("2");
+        /*
+
         System.out.println(view.getRootView().getTag());
         System.out.println(view.getRootView().getTag());
         System.out.println(view.getRootView().getTag());
         System.out.println(view.getRootView());
         System.out.println(view.getRootView().getParent());
+         */
     }
 
     @Override

@@ -12,4 +12,9 @@
     <string name="instructions_2">2. Brettet er delt inn i flere kvadrat, og inne i de ulike kvadratene er det bare lov å legge et tall en gang.</string>
     <string name="instructions_3">3. Det er bare lov å legge et av hvert tall på hver rekke både horisontalt og vertikalt.</string>
     <string name="go_back_button">Gå tilbake</string>
+
+    <string name="difficulty_easy">Lett</string>
+    <string name="difficulty_normal">Middels</string>
+    <string name="difficulty_hard">Vanskelig</string>
+    <string name="start_game">Start spill</string>
 </resources>
