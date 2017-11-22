@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Android-Sudoku</string>
     <string name="sudoku">Sudoku</string>
+    <string name="norwegian_description">A picture of a norwegian flag</string>
+    <string name="british_description">A picture of a british flag</string>
 
     <string name="new_game">Start New Game</string>
     <string name="add_new_board">Add new board</string>
