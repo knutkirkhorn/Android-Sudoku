@@ -24,4 +24,16 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
+
+    public boolean checkIfCorrectPlaced() {
+        boolean won = false;
+
+        for (int i = 0; i < gameBoard.length; i++) {
+            for (int j = 0; j < gameBoard[i].length; j++) {
+                //TODO: check each row horizontal and vertical
+            }
+        }
+
+        return won;
+    }
 }

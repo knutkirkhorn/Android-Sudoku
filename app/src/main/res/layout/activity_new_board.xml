@@ -18,6 +18,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:onClick="onGroupClicked"
+            android:id="@+id/tableRow1"
             android:layout_height="match_parent">
 
             <fragment

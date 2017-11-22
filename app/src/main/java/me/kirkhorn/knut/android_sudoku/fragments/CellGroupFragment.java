@@ -1,13 +1,11 @@
 package me.kirkhorn.knut.android_sudoku.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import me.kirkhorn.knut.android_sudoku.R;
@@ -31,6 +29,7 @@ public class CellGroupFragment extends Fragment {
     //private String mParam1;
     //private String mParam2;
 
+    private int groupId;
     private OnFragmentInteractionListener mListener;
 
     public CellGroupFragment() {
@@ -71,23 +70,35 @@ public class CellGroupFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cell_group, container, false);
 
-        //TextView textView =
-        //TableRow tableRow = new TableRow(this);
-
+        //Set textview click listeners
+        int textViews[] = new int[]{R.id.textView1, R.id.textView2, R.id.textView3, R.id.textView4,
+                         R.id.textView5, R.id.textView6, R.id.textView7, R.id.textView8, R.id.textView9};
+        for (int textView1 : textViews) {
+            TextView textView = view.findViewById(textView1);
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.onFragmentInteraction(groupId, Integer.parseInt(view.getTag().toString()));
+                }
+            });
+        }
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    /*public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction();
-        }
-    }*/
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    /*
+    public void chuckTestaMethod() {
+        System.out.println("hellloe");
+    }
 
     public void onClickTest(View view) {
         System.out.println("THIS IS A TEST");
-        mListener.onFragmentInteraction("asd");
+        mListener.onFragmentInteraction(groupId, view.getId());
     }
+     */
 
     @Override
     public void onAttach(Context context) {
@@ -117,7 +128,6 @@ public class CellGroupFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(String string);
+        void onFragmentInteraction(int groupId, int cellId);
     }
 }
