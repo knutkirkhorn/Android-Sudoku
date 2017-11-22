@@ -6,6 +6,9 @@
 
     <string name="new_game">Start New Game</string>
     <string name="add_new_board">Add new board</string>
+    <string name="continue_new_board">Continue</string>
+    <string name="successful_new_board">New board saved</string>
+    <string name="fail_new_board">Failed to save new board</string>
     <string name="show_instructions">Show instructions</string>
     <string name="choose_language">Choose language:</string>
 
@@ -24,4 +27,5 @@
     <string name="choose_a_number">Choose number to place:</string>
     <string name="place_number">Place number</string>
     <string name="piece_unsure">Mark piece as unsure</string>
+    <string name="remove_piece">Remove piece</string>
 </resources>

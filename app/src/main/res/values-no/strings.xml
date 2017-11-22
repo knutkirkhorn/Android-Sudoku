@@ -6,6 +6,9 @@
 
     <string name="new_game">Start nytt spill</string>
     <string name="add_new_board">Legg til nytt brett</string>
+    <string name="continue_new_board">Fortsett</string>
+    <string name="successful_new_board">Nytt brett lagret</string>
+    <string name="fail_new_board">Feilet med å lagre brett</string>
     <string name="show_instructions">Vis bruksanvisning</string>
     <string name="choose_language">Velg språk:</string>
 
@@ -24,4 +27,5 @@
     <string name="choose_a_number">Velg et tall å plassere:</string>
     <string name="place_number">Plasser tall</string>
     <string name="piece_unsure">Marker brikke som usikker</string>
+    <string name="remove_piece">Fjern tall</string>
 </resources>

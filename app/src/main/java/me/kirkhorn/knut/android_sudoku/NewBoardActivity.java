@@ -1,11 +1,14 @@
 package me.kirkhorn.knut.android_sudoku;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment;
 
@@ -34,15 +37,28 @@ public class NewBoardActivity extends AppCompatActivity implements CellGroupFrag
         finish();
     }
 
-    public void onShowInstructionsButtonClicked(View view) {
-        Intent intent = new Intent("me.kirkhorn.knut.InstructionsActivity");
-        startActivity(intent);
+    public void onContinueButtonClicked(View view) {
+        Intent intent = new Intent("me.kirkhorn.knut.GameDifficultyActivity");
+        intent.putExtra("newBoard", true);
+        startActivityForResult(intent, 2);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            clickedCell.setText(String.valueOf(data.getIntExtra("chosenNumber", 1)));
+            if (data.getBooleanExtra("removePiece", false)) {
+                clickedCell.setText("");
+            } else {
+                clickedCell.setText(String.valueOf(data.getIntExtra("chosenNumber", 1)));
+                clickedCell.setTextColor(Color.BLACK);
+                clickedCell.setTypeface(null, Typeface.BOLD);
+            }
+        } else if (requestCode == 2 && resultCode == RESULT_OK) {
+            if (data.getBooleanExtra("boardSaved", false)) {
+                Toast.makeText(this, getString(R.string.successful_new_board), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.successful_new_board), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -51,6 +67,7 @@ public class NewBoardActivity extends AppCompatActivity implements CellGroupFrag
         clickedCell = (TextView) view;
         Log.i(TAG, "Clicked group " + groupId + ", cell " + cellId);
         Intent intent = new Intent("me.kirkhorn.knut.ChooseNumberActivity");
+        intent.putExtra("newBoard", true);
         startActivityForResult(intent, 1);
     }
 }

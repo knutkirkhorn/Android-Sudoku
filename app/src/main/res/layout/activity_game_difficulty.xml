@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onDifficultyRadioButtonsClicked"
             android:text="@string/difficulty_easy" />
 
         <RadioButton
@@ -38,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onDifficultyRadioButtonsClicked"
             android:text="@string/difficulty_normal" />
 
         <RadioButton
@@ -45,11 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onDifficultyRadioButtonsClicked"
             android:text="@string/difficulty_hard" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="136dp"

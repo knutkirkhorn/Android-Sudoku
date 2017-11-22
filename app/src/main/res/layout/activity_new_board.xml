@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -119,16 +120,15 @@
         android:layout_marginStart="16dp" />
 
     <Button
-        android:id="@+id/buttonShowInstructions"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
-        android:onClick="onShowInstructionsButtonClicked"
-        android:text="@string/show_instructions"
+        android:layout_marginLeft="248dp"
+        android:onClick="onContinueButtonClicked"
+        android:text="@string/continue_new_board"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.965"
-        android:layout_marginStart="200dp" />
+        app:layout_constraintVertical_bias="0.965" />
 
 </android.support.constraint.ConstraintLayout>

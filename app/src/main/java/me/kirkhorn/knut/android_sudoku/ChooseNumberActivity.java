@@ -16,12 +16,18 @@ import android.widget.Spinner;
 public class ChooseNumberActivity extends AppCompatActivity {
     private int selectedNumber = 1;
     private boolean checkBoxChecked = false;
+    private boolean newBoardCreating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_number);
         inintializeSpinner();
+        newBoardCreating = getIntent().getBooleanExtra("newBoard", false);
+        if (newBoardCreating) {
+            CheckBox checkBox = findViewById(R.id.checkBox);
+            checkBox.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void inintializeSpinner() {
@@ -51,6 +57,13 @@ public class ChooseNumberActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.putExtra("chosenNumber", selectedNumber);
         intent.putExtra("isUnsure", checkBoxChecked);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    public void onRemovePieceButtonClicked(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("removePiece", true);
         setResult(RESULT_OK, intent);
         finish();
     }
