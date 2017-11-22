@@ -28,4 +28,5 @@
     <string name="place_number">Plasser tall</string>
     <string name="piece_unsure">Marker brikke som usikker</string>
     <string name="remove_piece">Fjern tall</string>
+    <string name="start_piece_error">Kan ikke endre start verdier</string>
 </resources>
