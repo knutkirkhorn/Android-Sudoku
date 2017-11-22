@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onStartNewGameButtonClicked(View view) {
-        Intent intent = new Intent("me.kirkhorn.knut.GameActivity");
+        Intent intent = new Intent("me.kirkhorn.knut.GameDifficultyActivity");
         startActivity(intent);
     }
 

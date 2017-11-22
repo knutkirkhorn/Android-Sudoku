@@ -46,6 +46,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".GameDifficultyActivity">
+            <intent-filter>
+                <action android:name="me.kirkhorn.knut.GameDifficultyActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

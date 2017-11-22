@@ -47,9 +47,9 @@ public class NewBoardActivity extends AppCompatActivity implements CellGroupFrag
     }
 
     @Override
-    public void onFragmentInteraction(int group, int cellId, View view) {
+    public void onFragmentInteraction(int groupId, int cellId, View view) {
         clickedCell = (TextView) view;
-        Log.i(TAG, "Clicked group " + group + ", cell " + cellId);
+        Log.i(TAG, "Clicked group " + groupId + ", cell " + cellId);
         Intent intent = new Intent("me.kirkhorn.knut.ChooseNumberActivity");
         startActivityForResult(intent, 1);
     }

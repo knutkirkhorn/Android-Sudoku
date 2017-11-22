@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 /**
@@ -14,6 +15,7 @@ import android.widget.Spinner;
 
 public class ChooseNumberActivity extends AppCompatActivity {
     private int selectedNumber = 1;
+    private boolean checkBoxChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,15 @@ public class ChooseNumberActivity extends AppCompatActivity {
         });
     }
 
+    public void onCheckBoxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        checkBoxChecked = view.getId() == R.id.checkBox && checked;
+    }
+
     public void chooseNumberButtonClicked(View view) {
         Intent intent = new Intent();
         intent.putExtra("chosenNumber", selectedNumber);
+        intent.putExtra("isUnsure", checkBoxChecked);
         setResult(RESULT_OK, intent);
         finish();
     }

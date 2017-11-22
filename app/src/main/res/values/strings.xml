@@ -13,6 +13,7 @@
     <string name="instructions_3">3. It is only allowed to place one of each number at each horizontal and vertical row.</string>
     <string name="go_back_button">Go back</string>
 
+    <string name="choose_difficulty">Choose difficulty:</string>
     <string name="difficulty_easy">Easy</string>
     <string name="difficulty_normal">Normal</string>
     <string name="difficulty_hard">Hard</string>
@@ -20,4 +21,5 @@
     <string name="choose_number">Choose number</string>
     <string name="choose_a_number">Choose number to place:</string>
     <string name="place_number">Place number</string>
+    <string name="piece_unsure">Mark piece as unsure</string>
 </resources>
