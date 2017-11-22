@@ -1,6 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:onClick="onGoBackButtonClicked"
+        android:text="@string/go_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/buttonShowInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="184dp"
+        android:onClick="onShowInstructionsButtonClicked"
+        android:text="@string/show_instructions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <TableLayout
+        android:layout_width="337dp"
+        android:layout_height="337dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/cellGroupFragment3"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_weight="1"
+                android:layout_width="92dp"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment2"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/cellGroupFragment4"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment5"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment6"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="117dp">
+
+            <fragment
+                android:id="@+id/cellGroupFragment7"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment8"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+
+            <fragment
+                android:id="@+id/cellGroupFragment9"
+                android:name="me.kirkhorn.knut.android_sudoku.fragments.CellGroupFragment"
+                android:layout_width="92dp"
+                android:layout_weight="1"
+                android:layout_height="106dp" />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>
