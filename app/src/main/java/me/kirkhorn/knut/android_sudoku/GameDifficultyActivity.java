@@ -54,9 +54,9 @@ public class GameDifficultyActivity extends AppCompatActivity {
 
     public void onStartGameButtonClicked(View view) {
         if (newBoard) {
-            //TODO: save new board
             Intent intent = new Intent();
             intent.putExtra("boardSaved", true);
+            intent.putExtra("difficulty", selectedDifficulty);
             setResult(RESULT_OK, intent);
             finish();
         } else {

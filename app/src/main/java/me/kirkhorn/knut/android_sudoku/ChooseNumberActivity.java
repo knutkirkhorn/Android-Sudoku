@@ -22,7 +22,7 @@ public class ChooseNumberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_number);
-        inintializeSpinner();
+        initializeSpinner();
         newBoardCreating = getIntent().getBooleanExtra("newBoard", false);
         if (newBoardCreating) {
             CheckBox checkBox = findViewById(R.id.checkBox);
@@ -30,7 +30,7 @@ public class ChooseNumberActivity extends AppCompatActivity {
         }
     }
 
-    private void inintializeSpinner() {
+    private void initializeSpinner() {
         final Integer numbers[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, numbers);
         Spinner spinner = findViewById(R.id.spinner);

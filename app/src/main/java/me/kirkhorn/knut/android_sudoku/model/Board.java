@@ -74,4 +74,28 @@ public class Board {
     public int getValue(int row, int column) {
         return gameCells[row][column];
     }
+
+    @Override
+    public String toString() {
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < gameCells.length; i++) {
+            for (int j = 0; j < gameCells[i].length; j++) {
+                if (j == 0) {
+                    temp.append("\n");
+                }
+
+                int currentNumber = gameCells[i][j];
+                if (currentNumber == 0) {
+                    temp.append("-");
+                } else {
+                    temp.append(currentNumber);
+                }
+
+                if (j != (gameCells[i].length-1)) {
+                    temp.append(" ");
+                }
+            }
+        }
+        return temp.toString();
+    }
 }

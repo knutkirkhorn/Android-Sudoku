@@ -1,5 +1,6 @@
 package me.kirkhorn.knut.android_sudoku;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -109,6 +113,52 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
             bufferedReader.close();
         } catch (IOException e) {
             Log.e(TAG, e.getMessage());
+        }
+
+        //TODO: read other boards
+        //reading from internal storage
+        String fileName = "boards-";
+        if (difficulty == 0) {
+            fileName += "easy";
+        } else if (difficulty == 1) {
+            fileName += "normal";
+        } else {
+            fileName += "hard";
+        }
+
+        FileInputStream fileInputStream;
+        try {
+            Context context = getApplicationContext();
+            fileInputStream = this.openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader internalBufferedReader = new BufferedReader(inputStreamReader);
+            String line = internalBufferedReader.readLine();
+            line = internalBufferedReader.readLine();
+            while (line != null) {
+                Board board = new Board();
+                // read all lines in the board
+                for (int i = 0; i < 9; i++) {
+                    String rowCells[] = line.split(" ");
+                    for (int j = 0; j < 9; j++) {
+                        if (rowCells[j].equals("-")) {
+                            board.setValue(i, j, 0);
+                        } else {
+                            board.setValue(i, j, Integer.parseInt(rowCells[j]));
+                        }
+                    }
+                    line = internalBufferedReader.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                }
+                boards.add(board);
+                line = internalBufferedReader.readLine();
+            }
+            internalBufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return boards;
