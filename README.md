@@ -3,7 +3,7 @@ Android sudoku app made in java with Android Studio
 
 ## Screenshots (***COMING SOON***)
 ## Features
-  - Start a new game with a specified difficulty (***COMING SOON***):
+  - Start a new game with a specified difficulty:
     * Easy
     * Normal
     * Hard
