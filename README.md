@@ -1,7 +1,9 @@
 # Android-Sudoku
 Android sudoku app made in java with Android Studio
 
-## Screenshots (***COMING SOON***)
+## Screenshots (***MORE COMING SOON***)
+![Preview](media/Startscreen-norwegian.png)
+
 ## Features
   - Start a new game with a specified difficulty:
     * Easy
