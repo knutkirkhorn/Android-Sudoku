@@ -67,8 +67,9 @@ public class Board {
             }
         }
 
-        // Check each group is in CellGroupFragment for easier code
-        return false;
+        // Check each group is in CellGroupFragment class for easier code
+        // returns true if horizontal and vertical lines are correct
+        return true;
     }
 
     public int getValue(int row, int column) {

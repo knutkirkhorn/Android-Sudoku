@@ -1,6 +1,5 @@
 package me.kirkhorn.knut.android_sudoku;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,7 +27,6 @@ import me.kirkhorn.knut.android_sudoku.model.Board;
  */
 
 public class GameActivity extends AppCompatActivity implements CellGroupFragment.OnFragmentInteractionListener {
-    private int[][] gameBoard = new int[9][9];
     private final String TAG = "GameActivity";
     private TextView clickedCell;
     private int clickedGroup;
@@ -74,8 +71,6 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
                 }
             }
         }
-
-        //initializeGameArray();
     }
 
     private ArrayList<Board> readGameBoards(int difficulty) {
@@ -115,8 +110,7 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
             Log.e(TAG, e.getMessage());
         }
 
-        //TODO: read other boards
-        //reading from internal storage
+        //reading from internal storage (/data/data/<package-name>/files)
         String fileName = "boards-";
         if (difficulty == 0) {
             fileName += "easy";
@@ -128,7 +122,6 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
 
         FileInputStream fileInputStream;
         try {
-            Context context = getApplicationContext();
             fileInputStream = this.openFileInput(fileName);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader internalBufferedReader = new BufferedReader(inputStreamReader);
@@ -160,21 +153,12 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return boards;
     }
 
     private Board chooseRandomBoard(ArrayList<Board> boards) {
         int randomNumber = (int) (Math.random() * boards.size());
         return boards.get(randomNumber);
-    }
-
-    private void initializeGameArray() {
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
-                gameBoard[i][j] = 0;
-            }
-        }
     }
 
     private boolean isStartPiece(int group, int cell) {
@@ -196,10 +180,11 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
     }
 
     public void onCheckBoardButtonClicked(View view) {
+        currentBoard.isBoardCorrect();
         if(checkAllGroups() && currentBoard.isBoardCorrect()) {
-            Toast.makeText(this, "THIS IS CORRECT", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.board_correct), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "FALLLSE", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.board_incorrect), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -219,9 +204,11 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
             int row = ((clickedGroup-1)/3)*3 + (clickedCellId/3);
             int column = ((clickedGroup-1)%3)*3 + ((clickedCellId)%3);
 
+            Button buttonCheckBoard = findViewById(R.id.buttonCheckBoard);
             if (data.getBooleanExtra("removePiece", false)) {
                 clickedCell.setText("");
                 currentBoard.setValue(row, column, 0);
+                buttonCheckBoard.setVisibility(View.INVISIBLE);
             } else {
                 int number = data.getIntExtra("chosenNumber", 1);
                 clickedCell.setText(String.valueOf(number));
@@ -234,10 +221,8 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
                     clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell));
                 }
 
-                Button buttonCheckBoard = findViewById(R.id.buttonCheckBoard);
                 if (currentBoard.isBoardFull()) {
                     buttonCheckBoard.setVisibility(View.VISIBLE);
-
                 } else {
                     buttonCheckBoard.setVisibility(View.INVISIBLE);
                 }
