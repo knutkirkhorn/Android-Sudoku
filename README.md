@@ -9,7 +9,7 @@ Android sudoku app made in java with Android Studio
     * Easy
     * Normal
     * Hard
-  - Add new Sudoku boards (***COMING SOON***)
+  - Add new Sudoku boards (boards are added to internal storage on the device)
   - Mark a placed piece as unsure (the piece will have a light blue background)
   - Instructions of how to play (***ADD MORE***)
   - Choose language at the start screen
