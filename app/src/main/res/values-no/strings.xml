@@ -13,9 +13,9 @@
     <string name="choose_language">Velg språk:</string>
 
     <string name="instructions">Bruksanvisning</string>
-    <string name="instructions_1">1. I Sudoku er det meningen å plassere alle de resterende brikkene i brettet som ikke er valgt.</string>
+    <string name="instructions_1">1. I Sudoku er det meningen å plassere alle de resterende tallene i brettet. Tallene går fra 1 til 9 (i 9x9 Sudoku).</string>
     <string name="instructions_2">2. Brettet er delt inn i flere kvadrat, og inne i de ulike kvadratene er det bare lov å legge et tall en gang.</string>
-    <string name="instructions_3">3. Det er bare lov å legge et av hvert tall på hver rekke både horisontalt og vertikalt.</string>
+    <string name="instructions_3">3. Det er bare lov å legge et av hvert tall på hver rekke, både horisontalt og vertikalt.</string>
     <string name="go_back_button">Gå tilbake</string>
 
     <string name="choose_difficulty">Velg vanskelighetsgrad:</string>
