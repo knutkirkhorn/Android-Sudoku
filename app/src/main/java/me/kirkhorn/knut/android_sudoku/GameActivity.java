@@ -207,6 +207,7 @@ public class GameActivity extends AppCompatActivity implements CellGroupFragment
             Button buttonCheckBoard = findViewById(R.id.buttonCheckBoard);
             if (data.getBooleanExtra("removePiece", false)) {
                 clickedCell.setText("");
+                clickedCell.setBackground(getResources().getDrawable(R.drawable.table_border_cell));
                 currentBoard.setValue(row, column, 0);
                 buttonCheckBoard.setVisibility(View.INVISIBLE);
             } else {
