@@ -1,5 +1,5 @@
 # Android-Sudoku
-Android sudoku app made in java with Android Studio
+Android sudoku app made in java with Android Studio.
 
 ## Screenshots (***MORE COMING SOON***)
 ![Preview](media/Startscreen-norwegian.png)
@@ -19,5 +19,5 @@ Flag images are from [flaglane.com](http://flaglane.com/).
   - Norwegian flag: [here](http://flaglane.com/download/norwegian-flag/norwegian-flag-small.png)
   - British flag: [here](http://flaglane.com/download/british-flag/british-flag-small.png)
 
-## Licence
+## License
 MIT © [Knut Kirkhorn](LICENSE)
